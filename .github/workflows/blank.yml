@@ -34,16 +34,12 @@ jobs:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
 
-      - name: Authenticate to Google Cloud
-        run: gcloud auth activate-service-account --key-file=${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-      
       - name: Configure Google Cloud Project
         run: gcloud config set project gitops-project-424508
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
-      
+
       - name: Terraform init
         id: init
         run: terraform init -backend-config="bucket=${{ env.BUCKET_TF_STATE }}"
-
