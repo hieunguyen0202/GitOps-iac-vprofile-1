@@ -17,10 +17,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-
 env:
   # S3 bucket for the Terraform state
-  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
+  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE }}
   GCP_REGION: us-central1
   GKE_CLUSTER: gke-cluster
 
@@ -40,9 +39,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      - name: Setup Terraform with specified version on the runner
+      # Setup Google Cloud SDK
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+
+      # Setup Terraform with specified version on the runner
+      - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
       
+      # Terraform init
       - name: Terraform init
         id: init
         run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
