@@ -33,7 +33,7 @@
 #   value       = module.gke.subnetwork
 # }
 output "key_json_path" {
-  value = "${file("key.json")}"
+  value = "key.json"
 }
 
 
