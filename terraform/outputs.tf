@@ -32,9 +32,7 @@
 #   description = "Subnetwork name"
 #   value       = module.gke.subnetwork
 # }
-output "key_json_path" {
-  value = "keys.json"
-}
+
 
 
 
