@@ -26,7 +26,7 @@ terraform {
     bucket = "my-gitops-project-state"
     prefix = "terraform/state"
     # credentials = "${var.credentials_file_path}"
-    credentials = file("key.json")
+    # credentials = file("key.json")
   }
 
   required_version = ">= 1.6.0"
