@@ -1,36 +1,36 @@
-output "cluster_name" {
-  description = "Google Kubernetes Engine Cluster Name"
-  value       = module.gke.name
-}
+# output "cluster_name" {
+#   description = "Google Kubernetes Engine Cluster Name"
+#   value       = module.gke.name
+# }
 
-output "cluster_endpoint" {
-  description = "Endpoint for Google Kubernetes Engine"
-  value       = module.gke.endpoint
-}
+# output "cluster_endpoint" {
+#   description = "Endpoint for Google Kubernetes Engine"
+#   value       = module.gke.endpoint
+# }
 
-output "location" {
-  description = "Google Cloud Platform location (zone) of the GKE Cluster"
-  value       = "us-central1-c"
-}
+# output "location" {
+#   description = "Google Cloud Platform location (zone) of the GKE Cluster"
+#   value       = "us-central1-c"
+# }
 
-output "cluster_ca_certificate" {
-  description = "CA Certificate for the Google Kubernetes Engine Cluster"
-  value       = module.gke.ca_certificate
-}
+# output "cluster_ca_certificate" {
+#   description = "CA Certificate for the Google Kubernetes Engine Cluster"
+#   value       = module.gke.ca_certificate
+# }
 
-output "node_pools" {
-  description = "Node pools configuration for the Google Kubernetes Engine Cluster"
-  value       = module.gke.node_pools
-}
+# output "node_pools" {
+#   description = "Node pools configuration for the Google Kubernetes Engine Cluster"
+#   value       = module.gke.node_pools
+# }
 
-output "network" {
-  description = "VPC network name"
-  value       = module.gke.network
-}
+# output "network" {
+#   description = "VPC network name"
+#   value       = module.gke.network
+# }
 
-output "subnetwork" {
-  description = "Subnetwork name"
-  value       = module.gke.subnetwork
+# output "subnetwork" {
+#   description = "Subnetwork name"
+#   value       = module.gke.subnetwork
 }
 
 
