@@ -31,7 +31,7 @@
 # output "subnetwork" {
 #   description = "Subnetwork name"
 #   value       = module.gke.subnetwork
-}
+# }
 
 
 
