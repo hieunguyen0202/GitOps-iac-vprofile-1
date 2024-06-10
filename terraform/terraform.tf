@@ -21,7 +21,6 @@ terraform {
       version = "~> 2.23.0"
     }
   }
-
   # backend "gcs" {
   #   bucket = "my-gitops-project-state"
   #   prefix = "terraform/state"
