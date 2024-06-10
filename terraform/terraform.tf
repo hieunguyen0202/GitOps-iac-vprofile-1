@@ -23,6 +23,7 @@ terraform {
   }
 
   backend "gcs" {
+    credentials = "key.json"
     bucket = "my-gitops-project-state"
     prefix = "terraform/state"
     # credentials = "${var.credentials_file_path}"
