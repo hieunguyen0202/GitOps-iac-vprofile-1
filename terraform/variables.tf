@@ -26,5 +26,5 @@ variable "cluster_name" {
 variable "credentials_file_path" {
   description = "Path to the Google Cloud credentials JSON file"
   type        = string
-  default     = "key.json"
+  default     = "keys.json"
 }
