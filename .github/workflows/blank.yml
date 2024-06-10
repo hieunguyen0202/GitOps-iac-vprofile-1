@@ -7,11 +7,22 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
+    paths:  
+      - terraform/**
   pull_request:
     branches: [ "main" ]
+    paths:
+      - terraform/**
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+
+env:
+  # S3 bucket for the Terraform state
+  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
+  GCP_REGION: us-central1
+  GKE_CLUSTER: gke-cluster
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,12 +36,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Setup Terraform with specified version on the runner
+        uses: hashicorp/setup-terraform@v2
+      
+      - name: Terraform init
+        id: init
+        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
