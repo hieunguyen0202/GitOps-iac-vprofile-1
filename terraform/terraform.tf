@@ -22,12 +22,12 @@ terraform {
     }
   }
 
-  backend "gcs" {
-    bucket = "my-gitops-project-state"
-    prefix = "terraform/state"
-    # credentials = "${var.credentials_file_path}"
+  # backend "gcs" {
+  #   bucket = "my-gitops-project-state"
+  #   prefix = "terraform/state"
+  #   # credentials = "${var.credentials_file_path}"
 
-  }
+  # }
 
   required_version = ">= 1.6.0"
 }
